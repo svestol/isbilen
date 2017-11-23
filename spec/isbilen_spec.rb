@@ -5,8 +5,13 @@ describe Isbilen do
     expect(described_class::VERSION).not_to be nil
   end
 
-  it 'has a snowflake method' do
-    expect(described_class.respond_to?('snowflake')).to eq(true)
+  context 'snowflake method' do
+    it 'exists' do
+      expect(described_class.respond_to?('snowflake')).to eq(true)
+    end
+    it 'and requires integer' do
+      expect { described_class.snowflake('a-string') }.to raise_error(TypeError)
+    end
   end
 
   it 'has a valid? method' do
