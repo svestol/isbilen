@@ -29,4 +29,14 @@ const sves_isbilen_t *sves_isbilen_from_hex(sves_isbilen_t * const restrict out,
 const char *sves_isbilen_get_hex(const sves_isbilen_t * const restrict snowflake,
                                  char * const restrict buffer,
                                  const size_t len);
+
+uint32_t sves_isbilen_get_seconds(const sves_isbilen_t * const snowflake);
+
+uint32_t sves_isbilen_get_microsec(const sves_isbilen_t * const snowflake);
+
+uint32_t sves_isbilen_get_instance_id(const sves_isbilen_t * const snowflake);
+
+uint8_t sves_isbilen_get_version(const sves_isbilen_t * const snowflake);
+
+
 #endif

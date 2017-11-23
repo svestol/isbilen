@@ -132,60 +132,18 @@ const sves_isbilen_t *sves_isbilen_from_hex(sves_isbilen_t * const restrict out,
   return out;
 }
 
-int main() {
-  char buffer[33];
-  sves_isbilen_t flake, compare;
+uint32_t sves_isbilen_get_seconds(const sves_isbilen_t * const snowflake) {
+  return snowflake->seconds;
+}
 
-  for (size_t i = 0; i < 1; i++) {
-    if (sves_isbilen_init(0xFFFFFFFF, &flake) )
-    ;
+uint32_t sves_isbilen_get_microsec(const sves_isbilen_t * const snowflake) {
+  return snowflake->microsec;
+}
 
-    printf("%s\n", sves_isbilen_get_hex(&flake, buffer, 33) );
+uint32_t sves_isbilen_get_instance_id(const sves_isbilen_t * const snowflake) {
+  return snowflake->instance_id;
+}
 
-    // buffer[0] -= 1;
-
-    sves_isbilen_from_hex(&compare, buffer, strlen(buffer) );
-
-
-
-    printf("%s\n", sves_isbilen_get_hex(&compare, buffer, 33) );
-
-
-
-    if (!sves_isbilen_valid(&compare) ) {
-      printf("Invalid snowflake\n");
-    }
-
-    if (flake.seconds != compare.seconds) {
-      printf("Seconds failed\n");
-    }
-
-    if (flake.microsec != compare.microsec) {
-      printf("Microsec failed\n");
-    }
-
-    if (flake.instance_id != compare.instance_id) {
-      printf("Instance ID failed\n");
-    }
-
-    if (flake.pid != compare.pid) {
-      printf("Process ID failed\n");
-    }
-
-    if (flake.counter != compare.counter) {
-      printf("Counter failed\n");
-    }
-
-    if (flake.version != compare.version) {
-      printf("Version failed\n");
-    }
-
-    if (flake.checksum != compare.checksum) {
-      printf("Checksum failed\n");
-    }
-  }
-
-
-
-  //printf("%s\n", sves_isbilen_get_hex(&flake, buffer, 33) );
+uint8_t sves_isbilen_get_version(const sves_isbilen_t * const snowflake) {
+  return snowflake->version;
 }
