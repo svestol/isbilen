@@ -1,18 +1,18 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'icecrystal/version'
+require 'isbilen'
 
 Gem::Specification.new do |spec|
-  spec.name = 'icecrystal'
-  spec.version = Icecrystal::VERSION
+  spec.name = 'isbilen'
+  spec.version = Isbilen::VERSION
   spec.authors = ['Sves']
   spec.email = ['sves@vestoldata.no']
 
-  spec.summary = ''
-  spec.description = 'Write a longer description or delete this line.'
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.summary = 'A nice little snowflake gem'
+  spec.description = 'A nice little snowflake gem'
+  spec.homepage = "https://github.com/svestol/isbilen"
 
-  spec.extensions = ['ext/icecrystal/extconf.rb']
+  spec.extensions = ['ext/isbilen/extconf.rb']
 
   # Prevent pushing this gem to RubyGems.org.
   # To allow pushes either set the 'allowed_push_host'
