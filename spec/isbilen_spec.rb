@@ -44,5 +44,9 @@ describe Isbilen do
     it 'keeps instance_id safe' do
       expect(described_class.instance_id(snowflake)).to eq instance_id
     end
+
+    it 'has a timestamp within a second from now' do
+      expect((described_class.seconds(snowflake) - Time.now.to_i).abs).to be < 2
+    end
   end
 end
