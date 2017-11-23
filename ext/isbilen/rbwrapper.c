@@ -1,7 +1,7 @@
 #include <ruby.h>
 #include "isbilen.h"
 
-VALUE Icecrystal = Qnil;
+VALUE Isbilen = Qnil;
 
 static VALUE get_snowflake(VALUE self, VALUE instance_id) {
   char c_buffer[33];
@@ -69,12 +69,12 @@ static VALUE get_version(VALUE self, VALUE string) {
   return UINT2NUM(sves_isbilen_get_version(&c_snowflake) );
 }
 
-void Init_icecrystal() {
-    Icecrystal = rb_define_module("Icecrystal");
-    rb_define_method(Icecrystal, "snowflake", get_snowflake, 1);
-    rb_define_method(Icecrystal, "valid?", is_valid, 1);
-    rb_define_method(Icecrystal, "seconds", get_seconds, 1);
-    rb_define_method(Icecrystal, "microsec", get_microsec, 1);
-    rb_define_method(Icecrystal, "instance_id", get_instance_id, 1);
-    rb_define_method(Icecrystal, "version", get_version, 1);
+void Init_isbilen() {
+    Isbilen = rb_define_module("Isbilen");
+    rb_define_singleton_method(Isbilen, "snowflake", get_snowflake, 1);
+    rb_define_singleton_method(Isbilen, "valid?", is_valid, 1);
+    rb_define_singleton_method(Isbilen, "seconds", get_seconds, 1);
+    rb_define_singleton_method(Isbilen, "microsec", get_microsec, 1);
+    rb_define_singleton_method(Isbilen, "instance_id", get_instance_id, 1);
+    rb_define_singleton_method(Isbilen, "version", get_version, 1);
 }

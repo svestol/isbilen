@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Icecrystal do
+describe Isbilen do
   it 'has a version number' do
     expect(described_class::VERSION).not_to be nil
   end
@@ -28,21 +28,21 @@ describe Icecrystal do
   it 'has a version method' do
     expect(described_class.respond_to?('version')).to eq(true)
   end
-end
 
-context 'Snowflake' do
-  let(:instance_id) { 823_764 }
-  let(:snowflake) { described_class.snowflake(instance_id) }
+  context 'Snowflake' do
+    let(:instance_id) { 823_764 }
+    let(:snowflake) { described_class.snowflake(instance_id) }
 
-  it 'is a valid snowflake' do
-    expect(described_class.valid?(snowflake)).to be true
-  end
+    it 'is a valid snowflake' do
+      expect(described_class.valid?(snowflake)).to be true
+    end
 
-  it 'is version 1' do
-    expect(described_class.version(snowflake)).to eq 0
-  end
+    it 'is version 1' do
+      expect(described_class.version(snowflake)).to eq 0
+    end
 
-  it 'keeps instance_id safe' do
-    expect(described_class.instance_id(snowflake)).to eq instance_id
+    it 'keeps instance_id safe' do
+      expect(described_class.instance_id(snowflake)).to eq instance_id
+    end
   end
 end

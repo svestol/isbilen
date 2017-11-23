@@ -1,0 +1,6 @@
+Style/BlockLength:
+  Exclude:
+    - 'spec/*.rb'
+    
+Documentation:
+    Enabled: false
