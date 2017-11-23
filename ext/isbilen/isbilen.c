@@ -41,7 +41,7 @@ const sves_isbilen_t *sves_isbilen_init(uint32_t instance_id, sves_isbilen_t * c
     .microsec = tv.tv_usec,
     .instance_id = instance_id,
     .pid = getpid(),
-    .counter = counter++,
+    .counter = __atomic_add_fetch(&counter,1, __ATOMIC_SEQ_CST),
     .version = 0x00,
   };
 
