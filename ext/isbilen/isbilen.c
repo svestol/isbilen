@@ -31,7 +31,7 @@ static inline uint8_t checksum_count(const sves_isbilen_t * const snowflake) {
 }
 
 const sves_isbilen_t *sves_isbilen_init(uint32_t instance_id, sves_isbilen_t * const out) {
-  static uint16_t counter = 0;
+  static _Atomic uint16_t counter = ATOMIC_VAR_INIT(0);
   struct timeval tv;
 
   if (gettimeofday(&tv, NULL) != 0) return NULL;
