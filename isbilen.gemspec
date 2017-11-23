@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = 'A nice little snowflake gem'
   spec.description = 'A nice little snowflake gem'
   spec.homepage = 'https://github.com/svestol/isbilen'
-
+  spec.license = 'MIT'
   spec.extensions = ['ext/isbilen/extconf.rb']
 
   # Prevent pushing this gem to RubyGems.org.
